@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071426">
+<title>AURAVIS | Beyond Sight, Towards a New Vision</title>
+<style>
+:root{--bg:#071426;--panel:#10233b;--panel2:#132b47;--cyan:#65ddf4;--blue:#4c9dff;--text:#edf7ff;--muted:#a9bfd2;--line:rgba(150,205,235,.2);--gold:#f6c978;--green:#78e0b5}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;color:var(--text);background:radial-gradient(circle at 80% 0%,#14365a 0,transparent 32%),var(--bg);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.65}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);background:rgba(7,20,38,.9);border-bottom:1px solid var(--line)}
+nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:1.25rem;font-weight:850;letter-spacing:.16em;color:var(--cyan)}.brand small{display:block;color:var(--muted);font-size:.58rem;letter-spacing:.12em;font-weight:600}
+.navlinks{display:flex;gap:18px;align-items:center;color:var(--muted);font-size:.85rem}.navlinks a{color:inherit}.navlinks a:hover{color:var(--cyan)}
+.menu{display:none;background:none;border:1px solid var(--line);color:white;padding:8px 12px;border-radius:9px}
+.hero{padding:82px 0 70px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.eyebrow{color:var(--cyan);font-weight:750;letter-spacing:.16em;text-transform:uppercase;font-size:.76rem}
+h1{font-size:clamp(3.2rem,8vw,6.2rem);line-height:.98;margin:15px 0;letter-spacing:.04em}
+.gradient{background:linear-gradient(90deg,#f3fbff,var(--cyan),#78aaff);color:transparent;background-clip:text}
+.subtitle{font-size:clamp(1.1rem,2vw,1.35rem);color:#d6e9f8}.hero p{color:var(--muted);max-width:650px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
+.btn{padding:11px 17px;border-radius:10px;font-weight:750;display:inline-block;border:1px solid var(--line);cursor:pointer}
+.primary{background:linear-gradient(100deg,#28a8d5,#397be4);color:#041426;border:0}.secondary{color:var(--text);background:rgba(255,255,255,.04)}
+.eye-card{min-height:340px;border:1px solid rgba(101,221,244,.3);border-radius:28px;background:radial-gradient(circle at 50% 48%,rgba(51,169,224,.24),transparent 48%),linear-gradient(145deg,#102b49,#09182a);display:grid;place-items:center;position:relative;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.28)}
+.eye{width:min(270px,72%);aspect-ratio:1.45;border:5px solid #9bdff4;border-radius:80% 15%;transform:rotate(45deg);display:grid;place-items:center;box-shadow:0 0 35px rgba(101,221,244,.32),inset 0 0 25px rgba(101,221,244,.18)}
+.iris{width:54%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#071426 0 18%,#37b9d7 20% 34%,#16679e 38% 62%,#8de9f5 65% 70%,#0c2948 73%);box-shadow:0 0 35px #42c8ec}
+.eye-caption{position:absolute;bottom:22px;color:var(--cyan);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase}
+section{padding:64px 0;border-top:1px solid var(--line)}
+.section-head{max-width:760px;margin-bottom:28px}
+h2{font-size:clamp(1.8rem,4vw,2.55rem);margin:8px 0 10px;line-height:1.2}
+h3{line-height:1.3}.lead{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:linear-gradient(145deg,rgba(19,43,71,.94),rgba(12,30,51,.94));border:1px solid var(--line);border-radius:17px;padding:21px}
+.card .icon{font-size:1.65rem}.card h3{margin:8px 0}.card p,.card li{color:var(--muted);font-size:.94rem}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step}
+.step{padding:17px 14px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+.step:before{counter-increment:step;content:"0" counter(step);color:var(--cyan);font-weight:850;font-size:.8rem}
+.step h3{font-size:.96rem;margin:8px 0 5px}.step p{color:var(--muted);font-size:.86rem;margin:0}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:18px 0 25px;background:rgba(10,28,48,.55)}
+th,td{border:1px solid var(--line);padding:11px 12px;text-align:left;vertical-align:top}
+th{background:#173653;color:#eaf8ff}td{color:#c5d7e6}
+.status{display:inline-block;font-size:.7rem;padding:4px 9px;border-radius:99px;font-weight:800;letter-spacing:.04em}
+.built{color:#a4f4d1;background:rgba(58,190,135,.13)}.planned{color:#ffdb9c;background:rgba(246,201,120,.13)}
+.note{border-left:3px solid var(--gold);background:rgba(246,201,120,.08);padding:15px 18px;border-radius:0 12px 12px 0;color:#e8d9bd;margin:18px 0}
+.formula{text-align:center;padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:14px;font-size:1.3rem;color:var(--cyan);font-weight:800}
+.qa{background:var(--panel);border:1px solid var(--line);border-radius:13px;margin:10px 0;overflow:hidden}
+.qa button{width:100%;text-align:left;padding:15px 17px;background:transparent;color:var(--text);border:0;font:inherit;font-weight:750;cursor:pointer;display:flex;justify-content:space-between;gap:15px}
+.qa button:hover{color:var(--cyan)}.answer{display:none;padding:0 17px 16px;color:var(--muted)}.qa.open .answer{display:block}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:0 24px}.spec{padding:13px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:15px}.spec span:first-child{color:var(--muted)}.spec span:last-child{text-align:right;font-weight:700}
+.cta{text-align:center;padding:36px;border-radius:22px;background:linear-gradient(120deg,rgba(35,142,183,.22),rgba(60,94,174,.2));border:1px solid rgba(101,221,244,.25)}
+footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem;text-align:center}
+@media(max-width:900px){.navlinks{gap:10px;font-size:.76rem}.steps{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:55px}.grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.navlinks{display:none;position:absolute;top:69px;left:0;right:0;padding:18px 22px;background:#09182a;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.menu{display:block}}
+@media(max-width:520px){.wrap{width:calc(100% - 28px)}.grid,.specs{grid-template-columns:1fr}.steps{grid-template-columns:1fr}table{font-size:.82rem}th,td{padding:8px}}
+
+.project-thumbnail{padding:30px 0 10px}
+.thumbnail-card{display:grid;grid-template-columns:1.15fr 1fr;gap:26px;align-items:center;padding:18px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(125deg,rgba(14,42,67,.95),rgba(8,20,39,.98));overflow:hidden}
+.thumbnail-art{min-height:210px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:15px;background:radial-gradient(circle at 50% 48%,rgba(30,204,224,.24),transparent 43%),linear-gradient(135deg,#071426,#102d4a)}
+.thumbnail-orbit{position:absolute;width:245px;height:120px;border:1px solid rgba(100,224,245,.42);border-radius:50%;transform:rotate(-18deg);box-shadow:0 0 30px rgba(37,196,226,.12)}
+.thumbnail-eye{width:150px;height:90px;border:3px solid #8beaff;border-radius:85% 15% 85% 15%;transform:rotate(45deg);display:grid;place-items:center;box-shadow:0 0 28px rgba(58,215,245,.28);background:rgba(11,34,57,.7)}
+.thumbnail-iris{width:53px;height:53px;border:5px solid #65dff2;border-radius:50%;background:radial-gradient(circle,#061222 0 24%,#2787ad 27% 58%,#0b263f 61%);box-shadow:0 0 18px rgba(69,220,245,.65)}
+.thumbnail-label{position:absolute;bottom:13px;left:15px;right:15px;text-align:center;font-size:.68rem;letter-spacing:.16em;color:#9deafa}
+.thumbnail-copy h2{font-size:2rem;margin:7px 0}
+.thumbnail-copy p{color:var(--muted);margin:0 0 18px}
+.copyright{display:inline-block;margin-top:8px;color:#a9c5d7;letter-spacing:.04em}
+.btn{transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,194,224,.18)}
+.btn:focus-visible,.qa button:focus-visible{outline:2px solid #8beaff;outline-offset:4px}
+@media(max-width:650px){.thumbnail-card{grid-template-columns:1fr}.thumbnail-art{min-height:180px}}
+
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="brand" href="#home">AURAVIS<small>VISION RESEARCH CONCEPT</small></a>
+<button class="menu" id="menuBtn" aria-label="Toggle navigation">☰</button>
+<div class="navlinks" id="navlinks">
+<a href="#about">About</a><a href="#working">How it works</a><a href="#anatomy">Eye anatomy</a><a href="#laser">Laser science</a><a href="#technology">Technology</a><a href="#safety">Safety</a><a href="#viva">Frequently Asked Questions</a>
+</div></nav></div></header>
+
+<main>
+<div class="wrap hero" id="home">
+<div><div class="eyebrow">Biomedical engineering research concept</div>
+<h1 class="gradient">AURAVIS</h1>
+<div class="subtitle">Advanced Optical Unified Retinal Assisted Vision</div>
+<p><strong>Beyond Sight, Towards a New Vision.</strong></p>
+<p>AURAWIS explores how real-time visual information captured by a camera can be digitally processed and represented through a simulated retinal interface. Its proposed device concept is LARID — Laser-Assisted Retinal Illumination Device.</p>
+<div class="actions"><a class="btn primary" href="#working">Explore the system ↓</a><a class="btn secondary" href="#viva">Frequently Asked Questions</a></div>
+</div>
+<div class="eye-card" aria-label="Stylised futuristic eye illustration"><div class="eye"><div class="iris"></div></div><div class="eye-caption">Human vision · Technology · Research</div></div>
+</div>
+
+<section id="about"><div class="wrap">
+<div class="section-head"><div class="eyebrow">01 / The concept</div><h2>What is AURAVIS?</h2><p class="lead">A student research concept combining embedded vision, image processing and exploration of future retinal-interface technologies.</p></div>
+<div class="grid">
+<article class="card"><div class="icon">🎯</div><h3>Research objective</h3><p>Capture environmental images and convert them into simplified visual information for a simulated retinal display.</p></article>
+<article class="card"><div class="icon">👁️</div><h3>The medical challenge</h3><p>Different causes of blindness affect different parts of the visual system. A technology must account for the condition of retinal cells, optic nerve and brain pathways.</p></article>
+<article class="card"><div class="icon">💡</div><h3>Our approach</h3><p>Combine a compact camera, computer vision, image enhancement and a conceptual model of a future retinal interface.</p></article>
+</div>
+<h3>Problem statement</h3><p class="lead">Vision loss can arise from conditions affecting the cornea, lens, retina, optic nerve or brain. AURAVIS investigates a possible technology pathway for visual information capture and processing, without claiming to cure blindness.</p>
+<h3>Project objectives</h3><ol><li>Capture live video using ESP32-CAM.</li><li>Transmit the video stream to a computer over Wi-Fi.</li><li>Apply grayscale conversion, contrast enhancement and edge detection.</li><li>Represent processed information on a screen or LED matrix.</li><li>Study eye anatomy and the visual pathway.</li><li>Understand the safety and clinical validation required for a medical device.</li></ol>
+</div></section>
+
+<section id="working"><div class="wrap">
+<div class="section-head"><div class="eyebrow">02 / System workflow</div><h2>How the concept works</h2><p class="lead">The current demonstration covers image capture and digital processing. Retinal delivery is a proposed research direction, not a working feature.</p></div>
+<div class="steps">
+<div class="step"><h3>Visual capture</h3><p>ESP32-CAM records the surrounding scene.</p></div>
+<div class="step"><h3>Transmission</h3><p>Video is sent over Wi-Fi to a computer.</p></div>
+<div class="step"><h3>Image processing</h3><p>Software enhances contrast, converts to grayscale and detects edges.</p></div>
+<div class="step"><h3>Information encoding</h3><p>Image features are represented as a simplified visual pattern.</p></div>
+<div class="step"><h3>Retinal simulation</h3><p>A screen or LED matrix represents proposed output; it does not stimulate living retinal cells.</p></div>
+</div>
+<h3>System architecture</h3>
+<div class="formula">Environment → ESP32-CAM → Wi-Fi → Computer / OpenCV → Visual pattern → Screen simulation</div>
+</div></section>
+
+<section id="anatomy"><div class="wrap">
+<div class="section-head"><div class="eyebrow">03 / Ophthalmology fundamentals</div><h2>Human eye anatomy</h2><p class="lead">The eye is an optical and biological system. The retina is not simply a screen: it is specialised neural tissue that begins processing visual information.</p></div>
+<table><thead><tr><th>Structure</th><th>Medical function</th><th>Relevance to AURAVIS</th></tr></thead><tbody>
+<tr><td>Cornea</td><td>Transparent front surface; provides much of the eye's focusing power.</td><td>Any proposed optical path must account for refraction and safety.</td></tr>
+<tr><td>Iris and pupil</td><td>Iris changes pupil size to regulate incoming light.</td><td>Shows that the eye naturally regulates light entry.</td></tr>
+<tr><td>Crystalline lens</td><td>Fine-tunes focus so an image forms on the retina.</td><td>A model lens can demonstrate focusing; it is not an implant.</td></tr>
+<tr><td>Retina</td><td>Light-sensitive neural tissue lining the back of the eye.</td><td>Conceptual target region; our model uses a simulated retina.</td></tr>
+<tr><td>Rods</td><td>Photoreceptors important for dim-light and peripheral vision.</td><td>Biological light sensors, not a simple projection screen.</td></tr>
+<tr><td>Cones</td><td>Photoreceptors important for colour and fine detail, especially in brighter light.</td><td>Show why normal vision needs specialised living cells.</td></tr>
+<tr><td>Retinal ganglion cells</td><td>Collect processed retinal information; their axons form the optic nerve.</td><td>Some retinal prosthesis approaches interact with surviving neurons.</td></tr>
+<tr><td>Optic nerve</td><td>Carries visual information from the retina toward the brain.</td><td>A functioning downstream pathway is important.</td></tr>
+<tr><td>Visual cortex</td><td>Brain region involved in processing and interpreting vision.</td><td>Vision is not produced by the eye alone.</td></tr>
+</tbody></table>
+<h3>How natural vision occurs</h3><ol><li>Light reflected from an object enters through the cornea.</li><li>The pupil regulates incoming light.</li><li>The lens helps focus the image onto the retina.</li><li>Rods and cones respond to light and initiate neural signalling.</li><li>Retinal circuits process the signals.</li><li>Signals travel through the optic nerve and visual pathways.</li><li>The brain interprets the information as visual perception.</li></ol>
+</div></section>
+
+<section id="science"><div class="wrap">
+<div class="section-head"><div class="eyebrow">04 / Medical science</div><h2>Why light projection alone cannot restore vision</h2><p class="lead">A projected optical image is not equivalent to repairing photoreceptors or creating a useful neural signal.</p></div>
+<p>In normal sight, photoreceptors respond to light and initiate biological signalling. If photoreceptors or other parts of the visual pathway are damaged, projecting an image onto the retina may not produce useful vision. The retina contains multiple cell types and neural circuits, and the brain must interpret the resulting signals.</p>
+<table><thead><tr><th>Research approach</th><th>Basic principle</th><th>Important distinction</th></tr></thead><tbody>
+<tr><td>Optical projection</td><td>Forms an image using light and optical components.</td><td>Needs functioning light-sensitive biological cells to convert light into neural signals.</td></tr>
+<tr><td>Retinal prosthesis</td><td>An implanted electrode array electrically stimulates selected retinal neurons.</td><td>Electrical neural interface, not simply a laser shining an image onto the retina.</td></tr>
+<tr><td>Optogenetics</td><td>Research approach using genetic methods to make selected cells respond to light.</td><td>Specialised biomedical research; not part of this student prototype.</td></tr>
+<tr><td>Cortical visual prosthesis</td><td>Research devices aim to stimulate visual regions of the brain.</td><td>Targets the brain rather than projecting an image onto the retina.</td></tr>
+</tbody></table>
+<div class="note"><strong>Who could a future technology help?</strong> It depends on the cause and location of vision loss, the condition of remaining retinal cells, the optic nerve and the brain's visual pathways. A device cannot be described as suitable for all blind people. Patient suitability must be assessed by qualified medical specialists.</div>
+</div></section>
+
+<section id="laser"><div class="wrap">
+<div class="section-head"><div class="eyebrow">05 / Optical physics</div><h2>Laser science: Wavelength, Frequency and Power</h2><p class="lead">Laser parameters are engineering and safety specifications. They are not values that can be guessed from the desired colour of a beam.</p></div>
+<div class="grid">
+<article class="card"><div class="icon">〰️</div><h3>Wavelength (λ)</h3><p>Distance between successive wave peaks, commonly measured in nanometres (nm).</p></article>
+<article class="card"><div class="icon">⏱️</div><h3>Frequency (f)</h3><p>Number of wave cycles per second, measured in hertz (Hz).</p></article>
+<article class="card"><div class="icon">⚡</div><h3>Optical power</h3><p>Rate at which optical energy is emitted, commonly expressed in watts or milliwatts.</p></article>
+</div>
+<div class="formula">c = f × λ</div>
+<p class="lead">In a vacuum: c is the speed of light, f is frequency and λ is wavelength. Wavelength and frequency are inversely related for electromagnetic radiation in a given medium.</p>
+<h3>Parameters a qualified team would need to evaluate</h3>
+<table><thead><tr><th>Parameter</th><th>Meaning</th><th>AURAVIS project status</th></tr></thead><tbody>
+<tr><td>Wavelength (nm)</td><td>Optical wavelength emitted by the source.</td><td>Not selected; no ocular laser is installed.</td></tr>
+<tr><td>Optical frequency (Hz)</td><td>Wave cycles per second, related to wavelength by c = f × λ.</td><td>Not specified; no source is selected.</td></tr>
+<tr><td>Output power (W or mW)</td><td>Rate of optical energy emission.</td><td>Not specified; no eye-directed source is used.</td></tr>
+<tr><td>Pulse duration</td><td>Duration of each pulse from a pulsed source.</td><td>Not applicable to current model.</td></tr>
+<tr><td>Repetition rate (Hz)</td><td>Number of pulses emitted per second.</td><td>Not applicable to current model.</td></tr>
+<tr><td>Beam diameter and divergence</td><td>Describe beam size and how it spreads.</td><td>Not specified; requires complete optical design.</td></tr>
+<tr><td>Exposure duration</td><td>How long tissue is exposed to optical energy.</td><td>No human or animal exposure.</td></tr>
+<tr><td>Maximum permissible exposure (MPE)</td><td>Exposure limit determined using applicable standards and conditions.</td><td>Must be assessed by qualified laser-safety professionals for any future device.</td></tr>
+</tbody></table>
+<div class="note"><strong>Why no laser power or frequency setting?</strong> There is no universal safe laser setting for projecting images into a human eye. A safety assessment needs the complete source and exposure information, optical geometry, beam characteristics, exposure time, operating mode and applicable standards. An incorrect value could cause permanent eye injury. AURAWIS does not propose or test an eye-directed laser setting.</div>
+</div></section>
+
+<section id="technology"><div class="wrap">
+<div class="section-head"><div class="eyebrow">06 / Engineering stack</div><h2>Modern technologies involved</h2><p class="lead">AURAVIS brings together electronics, computing, optics and biomedical research.</p></div>
+<div class="grid">
+<article class="card"><div class="icon">📷</div><h3>Embedded vision</h3><p>ESP32-CAM, compact camera module and Wi-Fi video streaming.</p></article>
+<article class="card"><div class="icon">🧠</div><h3>AI and computer vision</h3><p>Potential future object recognition and machine-learning-based scene understanding.</p></article>
+<article class="card"><div class="icon">🖥️</div><h3>Digital image processing</h3><p>Grayscale conversion, contrast enhancement, edge detection and image simplification.</p></article>
+<article class="card"><div class="icon">🔬</div><h3>Optical engineering</h3><p>Study of lenses, light paths, image formation and optical safety.</p></article>
+<article class="card"><div class="icon">⚡</div><h3>Retinal prosthesis research</h3><p>Specialised research interfaces may use microelectrode arrays to electrically stimulate selected neurons.</p></article>
+<article class="card"><div class="icon">🧬</div><h3>Neural and biomedical engineering</h3><p>Visual pathways, biocompatible interfaces and neural signal communication.</p></article>
+</div>
+<h3>Image-processing concepts</h3><ul><li><strong>Grayscale:</strong> represents an image using intensity rather than full colour.</li><li><strong>Contrast enhancement:</strong> increases differences between darker and brighter regions.</li><li><strong>Edge detection:</strong> identifies boundaries and strong intensity changes.</li><li><strong>Thresholding:</strong> separates pixels into groups using an intensity threshold.</li><li><strong>Object detection:</strong> AI task that identifies and locates objects such as people, chairs or vehicles.</li></ul>
+</div></section>
+
+<section id="prototype"><div class="wrap">
+<div class="section-head"><div class="eyebrow">07 / Current build</div><h2>The working prototype</h2><p class="lead">The exhibition model demonstrates the first stages of the proposed system.</p></div>
+<div class="grid">
+<article class="card"><span class="status built">CURRENT PROTOTYPE</span><h3>ESP32-CAM</h3><p>Captures real-time video of the environment.</p></article>
+<article class="card"><span class="status planned">SOFTWARE DEMO</span><h3>Computer processing</h3><p>Displays the camera stream and can apply image-processing filters on a laptop.</p></article>
+<article class="card"><span class="status planned">SIMULATION</span><h3>Artificial retina</h3><p>A screen or LED pattern represents processed visual information.</p></article>
+</div>
+<div class="note"><strong>Prototype status:</strong> This is an educational proof-of-concept for video capture and image processing. It has not demonstrated retinal stimulation, implantation or restoration of sight.</div>
+<div class="specs">
+<div class="spec"><span>Camera module</span><span>ESP32-CAM</span></div><div class="spec"><span>Communication</span><span>Wi-Fi</span></div>
+<div class="spec"><span>Processing platform</span><span>Computer / laptop</span></div><div class="spec"><span>Image processing</span><span>OpenCV (demo)</span></div>
+<div class="spec"><span>Output</span><span>Screen / LED simulation</span></div><div class="spec"><span>Device concept</span><span>LARID</span></div>
+</div>
+</div></section>
+
+<section id="safety"><div class="wrap">
+<div class="section-head"><div class="eyebrow">08 / Safety and ethics</div><h2>Limitations, safety and medical validation</h2><p class="lead">A credible biomedical project explains what it can do, what it cannot do and what evidence would be required next.</p></div>
+<div class="note"><strong>Laser safety:</strong> Never direct a laser or intense light into a human or animal eye. Do not use a laser pointer to demonstrate retinal projection. Use a monitor, LED matrix or printed pattern for the simulation. A dim-looking or invisible beam is not automatically safe.</div>
+<ol>
+<li><strong>Different causes of blindness:</strong> damage may occur in different parts of the visual pathway.</li>
+<li><strong>Biological response:</strong> light projection cannot replace photoreceptors or guarantee a neural response.</li>
+<li><strong>Neural coding:</strong> natural vision involves complex patterns of activity across retinal cells.</li>
+<li><strong>Resolution:</strong> a camera image contains more information than a simple simulated display can reproduce.</li>
+<li><strong>Optical safety:</strong> any eye-directed source requires strict evaluation to prevent tissue damage.</li>
+<li><strong>Implant safety:</strong> an implant requires biocompatibility, sterilisation and mechanical reliability.</li>
+<li><strong>Power and heat:</strong> wearable or implantable electronics must manage battery life, temperature and electrical safety.</li>
+<li><strong>Clinical evidence:</strong> effectiveness and patient suitability must be established through medical research.</li>
+</ol>
+<h3>Before any medical use, what would be needed?</h3>
+<ul><li>Consultation with ophthalmologists, retinal specialists and biomedical engineers.</li><li>Optical modelling and independent laser-safety assessment, if a laser were ever considered.</li><li>Electrical, thermal and biocompatibility testing.</li><li>Bench testing with non-living models and suitable laboratory equipment.</li><li>Ethics and regulatory review, followed by properly authorised clinical studies.</li></ul>
+</div></section>
+
+<section id="future"><div class="wrap">
+<div class="section-head"><div class="eyebrow">09 / Research roadmap</div><h2>Future scope</h2><p class="lead">Future stages require engineering development, laboratory testing and specialist medical research.</p></div>
+<div class="grid">
+<article class="card"><h3>01 · Smarter image processing</h3><p>Investigate adaptive contrast, object recognition and scene simplification.</p></article>
+<article class="card"><h3>02 · Optical modelling</h3><p>Model image formation and light delivery using safe, non-biological test equipment.</p></article>
+<article class="card"><h3>03 · Retinal interface research</h3><p>Study optical or neural-interface approaches with ophthalmology and biomedical specialists.</p></article>
+</div>
+</div></section>
+
+<section id="viva"><div class="wrap">
+<div class="section-head"><div class="eyebrow">10 / Quick answers</div><h2>Frequently Asked Questions</h2><p class="lead">Select a question to reveal a concise, scientifically responsible answer.</p></div>
+<div id="qaList">
+<div class="qa"><button>1. What is AURAVIS? <span>＋</span></button><div class="answer">AURAVIS stands for Advanced Optical Unified Retinal Assisted Vision. It is a student research concept for camera-based capture, digital processing and simulated retinal output.</div></div>
+<div class="qa"><button>2. What is LARID? <span>＋</span></button><div class="answer">LARID means Laser-Assisted Retinal Illumination Device. It is the proposed device concept. Our current prototype does not contain an eye-directed laser.</div></div>
+<div class="qa"><button>3. Can your model make a blind person see? <span>＋</span></button><div class="answer">Currently, it demonstrates image capture and digital processing only. It can  restore sight or stimulate a human retina when medically approved and designed accordingly.</div></div>
+<div class="qa"><button>4. Why did you choose ESP32-CAM? <span>＋</span></button><div class="answer">It is a compact, affordable camera microcontroller that can capture images and provide a video stream over Wi-Fi.</div></div>
+<div class="qa"><button>5. What happens after image capture? <span>＋</span></button><div class="answer">Video is sent to a computer, where software can apply grayscale conversion, contrast enhancement and edge detection.</div></div>
+<div class="qa"><button>6. What is the retina? <span>＋</span></button><div class="answer">The retina is light-sensitive neural tissue at the back of the eye. Photoreceptors respond to light, and retinal circuits process information before signals travel through the optic nerve.</div></div>
+<div class="qa"><button>7. What are rods and cones? <span>＋</span></button><div class="answer">Rods are especially important for dim-light vision. Cones support colour vision and fine detail, particularly in brighter light.</div></div>
+<div class="qa"><button>8. What is the optic nerve? <span>＋</span></button><div class="answer">It is a bundle of nerve fibres carrying visual information from retinal ganglion cells toward the brain.</div></div>
+<div class="qa"><button>9. What laser frequency will your device use? <span>＋</span></button><div class="answer">No laser frequency has been selected because our model does not use an ocular laser. Frequency is related to wavelength by c = f × λ. A real medical optical system needs a complete optical design and formal safety assessment before a source can be selected.</div></div>
+<div class="qa"><button>10. What wavelength will the laser use? <span>＋</span></button><div class="answer">It has not been specified. Wavelength alone does not determine safety or clinical suitability; power, beam geometry, exposure duration and applicable standards also matter.</div></div>
+<div class="qa"><button>11. Why not simply use a red laser? <span>＋</span></button><div class="answer">Laser colour does not make it automatically safe. A focused beam can injure retinal tissue. We use a screen simulation instead.</div></div>
+<div class="qa"><button>12. What is the difference between a laser and an LED? <span>＋</span></button><div class="answer">A laser generally produces a narrow, directional beam. An LED emits less directional light over a broader range of angles. Our model uses a display or LED simulation, not a retinal laser.</div></div>
+<div class="qa"><button>13. What is a retinal prosthesis? <span>＋</span></button><div class="answer">A medical technology that can use an electrode array to electrically stimulate selected retinal neurons. It is different from simply projecting a picture onto the retina.</div></div>
+<div class="qa"><button>14. Does every blind person have retinal damage? <span>＋</span></button><div class="answer">No. Vision loss can result from conditions affecting the cornea, lens, retina, optic nerve or brain.</div></div>
+<div class="qa"><button>15. What is the role of AI? <span>＋</span></button><div class="answer">AI could identify objects or simplify a scene, such as detecting people, doors or obstacles. This is a possible future software feature, not proof of restored biological vision.</div></div>
+<div class="qa"><button>16. What is the biggest challenge? <span>＋</span></button><div class="answer">Translating digital image information into a safe biological signal that the remaining visual pathway can meaningfully use.</div></div>
+<div class="qa"><button>17. What is innovative about your project? <span>＋</span></button><div class="answer">It combines a low-cost camera, real-time image processing and a model of a proposed retinal interface to explain a future research direction.</div></div>
+<div class="qa"><button>18. What are the limitations? <span>＋</span></button><div class="answer">It has no medical retinal interface, does not stimulate living cells, has no clinical testing and cannot restore sight. Its output is a screen simulation.</div></div>
+<div class="qa"><button>19. How do you keep the demonstration safe? <span>＋</span></button><div class="answer">We use a camera and screen or LED output only. We do not direct lasers or intense light into anyone's eyes.</div></div>
+<div class="qa"><button>20. What is the future plan? <span>＋</span></button><div class="answer">Improve image processing, explore AI scene simplification, create better optical simulations and learn from established retinal-prosthesis research with qualified specialists.</div></div>
+<div class="qa"><button>21. What is the main message? <span>＋</span></button><div class="answer">We are not claiming to have solved blindness. We demonstrate how engineering can explore new ideas in visual assistance while respecting the complexity and safety of the human visual system.</div></div>
+</div>
+</div></section>
+
+<section id="references"><div class="wrap">
+<div class="section-head"><div class="eyebrow">11 / Further reading</div><h2>Medical and technical references</h2><p class="lead">Use these resources to verify the medical background and prepare for detailed questions.</p></div>
+<ol>
+<li>National Eye Institute — <a href="https://www.nei.nih.gov/eye-health-information/healthy-vision/how-eyes-work" target="_blank" rel="noopener">How the Eyes Work</a></li>
+<li>American Academy of Ophthalmology — <a href="https://www.aao.org/eye-health/anatomy/retina-103" target="_blank" rel="noopener">Retina overview</a></li>
+<li>U.S. Food and Drug Administration — <a href="https://www.fda.gov/radiation-emitting-products/laser-products-and-instruments/frequently-asked-questions-about-lasers" target="_blank" rel="noopener">Laser safety FAQ</a></li>
+<li>FDA — <a href="https://www.accessdata.fda.gov/cdrh_docs/pdf11/h110002c.pdf" target="_blank" rel="noopener">Argus II Retinal Prosthesis System device document (PDF)</a></li>
+<li>NIH / NCBI Bookshelf — <a href="https://www.ncbi.nlm.nih.gov/books/NBK610611/" target="_blank" rel="noopener">Retina reference</a></li>
+</ol>
+</div></section>
+
+<section id="team"><div class="wrap"><div class="cta">
+<div class="eyebrow">A student innovation project</div><h2>Beyond Sight, Towards a New Vision.</h2>
+<p class="lead">AURAVIS — featuring the LARID device concept.</p>
+<div class="actions" style="justify-content:center;margin-top:22px"><a class="btn primary" href="#working">Explore the system ↓</a><a class="btn secondary" href="#viva">Frequently Asked Questions</a></div>
+<p style="color:var(--muted)">Presented by: <strong>Prince &amp; Zindagi</strong><br>School: <strong>D.A.V. Model School Sector 15 A Chandigarh</strong><br>Mentor: <strong>Harpreet Singh</strong></p>
+</div></div></section>
+</main>
+<section class="project-thumbnail" aria-label="AURAVIS project thumbnail">
+<div class="wrap">
+  <div class="thumbnail-card">
+    <div class="thumbnail-art" aria-hidden="true">
+      <div class="thumbnail-orbit"></div>
+      <div class="thumbnail-eye"><div class="thumbnail-iris"></div></div>
+      <span class="thumbnail-label">LARID · RETINAL VISION CONCEPT</span>
+    </div>
+    <div class="thumbnail-copy">
+      <div class="eyebrow">Project snapshot</div>
+      <h2>AURAVIS</h2>
+      <p>Beyond Sight, Towards a New Vision.</p>
+      <a class="btn primary" href="#home">Back to top ↑</a>
+    </div>
+  </div>
+</div>
+</section>
+<footer><div class="wrap">AURAVIS · Biomedical Engineering Research Concept · Educational prototype, not a medical device.<br><span class="copyright">© 2026 Prince Dhankhar 24. All rights reserved.</span></div></footer>
+
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const navlinks=document.getElementById('navlinks');
+menuBtn.addEventListener('click',()=>navlinks.classList.toggle('open'));
+navlinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>navlinks.classList.remove('open')));
+document.querySelectorAll('.qa button').forEach(button=>{
+  button.addEventListener('click',()=>{
+    const item=button.parentElement;
+    item.classList.toggle('open');
+    button.querySelector('span').textContent=item.classList.contains('open')?'−':'＋';
+  });
+});
+</script>
+</body>
+</html>
